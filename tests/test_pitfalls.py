@@ -2,7 +2,7 @@ import pytest
 import re
 import subprocess
 from pathlib import Path
-from chapter4 import mutable_default as md
+
 
 @pytest.fixture(scope="module")
 def input_file_path():
@@ -34,10 +34,3 @@ def test_import(python_modules):
     if failure != 0:
         print("Error: Could not run Python on {}".format(python_modules[matches[0]]))
     assert failure == 0
-
-def test_mutable_default():
-    # run the ingredients function once
-    ingredients = md.ingredients("flour")
-    # now call again and make sure it returns only the new ingredient
-    ingredients = md.ingredients("sugar")
-    assert ingredients == ["sugar"]

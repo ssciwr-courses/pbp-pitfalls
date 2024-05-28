@@ -1,0 +1,29 @@
+name: Autograding Tests
+'on':
+- push
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: test code formatting
+      id: test-code-formatting
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: test code formatting
+        setup-command: 'pip install -r requirements.txt'
+        command: python -m pytest -m "not skipautograding"
+        timeout: 10
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        TEST-CODE-FORMATTING_RESULTS: "${{steps.test-code-formatting.outputs.result}}"
+      with:
+        runners: test-code-formatting

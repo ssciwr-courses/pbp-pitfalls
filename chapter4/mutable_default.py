@@ -1,6 +1,7 @@
 import time
 from datetime import datetime
 
+
 # rewrite the function "ingredients" to use a mutable default argument
 def ingredients(ingredient, all_ingredients=[]):
     all_ingredients.append(ingredient)
@@ -8,7 +9,7 @@ def ingredients(ingredient, all_ingredients=[]):
 
 
 def display_time(time_to_print=datetime.now()):
-    print(time_to_print.strftime('%B %d, %Y %H:%M:%S'))
+    print(time_to_print.strftime("%B %d, %Y %H:%M:%S"))
 
 
 def myfunc(a={"b": 0}):
@@ -16,7 +17,7 @@ def myfunc(a={"b": 0}):
     print(a)
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     # method 1
     # a list is mutable
     # print(ingredients.__defaults__)
@@ -34,9 +35,3 @@ if __name__=="__main__":
     # print(display_time.__defaults__)
     # time.sleep(1)
     # display_time()
-
-
-
-
-
-

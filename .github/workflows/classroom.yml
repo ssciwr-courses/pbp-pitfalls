@@ -17,7 +17,7 @@ jobs:
       id: test-code-formatting
       uses: classroom-resources/autograding-command-grader@v1
       with:
-        test-name: test code formatting
+        test-name: test pitfalls
         setup-command: 'pip install -r requirements.txt'
         command: python -m pytest -s
         timeout: 10

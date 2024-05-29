@@ -15,10 +15,11 @@ def myfunc():
 print(mylist, "value of global variable in outermost scope")
 
 # used for testing, please do not modify
-def return_mylist():
+def main():
+    myfunc()
+    print(mylist, "value of global variable in outer scope")
     return mylist
 
 if __name__ == '__main__':
-    myfunc()
-    print(mylist, "value of global variable in outer scope")
+    main()
 

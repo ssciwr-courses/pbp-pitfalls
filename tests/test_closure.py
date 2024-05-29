@@ -1,6 +1,4 @@
 import os
-import  unittest.mock as mock
-import runpy
 from chapter4 import closure
 
 def test_closure():

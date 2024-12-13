@@ -3,7 +3,9 @@ from datetime import datetime
 
 
 # rewrite the function "ingredients" to use a mutable default argument
-def ingredients(ingredient, all_ingredients=[]):
+def ingredients(ingredient, all_ingredients=None):
+    if all_ingredients is None:
+        all_ingredients = []
     all_ingredients.append(ingredient)
     return all_ingredients
 

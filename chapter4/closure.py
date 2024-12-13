@@ -2,19 +2,15 @@
 # the expected result:
 # [2, 4, 6, 8, 10]
 def make_multiplier_of(n):
-    mylist = []
-    for i in n:
+    def multiplier(j):
+        return n * j
 
-        def multiplier(j):
-            return i * j
-
-        mylist.append(multiplier)
-    return mylist
+    return multiplier
 
 
 # for testing purposes, we wrap this in a function
 def main():
-    times_x = make_multiplier_of(list(range(5)))
+    times_x = [make_multiplier_of(i) for i in range(1, 6)]
     times_table = []
     for times in times_x:
         print(times(2))

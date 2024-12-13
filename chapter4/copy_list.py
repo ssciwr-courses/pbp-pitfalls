@@ -5,7 +5,7 @@ import copy
 # where the first returned list is equal to mylist and the second is
 # mylist with an appended 4
 def lists1(mylist):
-    mylist2 = mylist
+    mylist2 = mylist.copy()
     print(mylist)
     print(mylist2)
     mylist2.append(4)

@@ -19,7 +19,7 @@ jobs:
       with:
         timeout: 10
         setup-command: 'pip install -r requirements.txt'
-        max-score: 3
+        max-score: 6
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:

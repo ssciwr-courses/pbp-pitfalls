@@ -6,11 +6,9 @@ mylist = [1, 2, 3]
 # meaning that mylist should become ["x"] also in the outer
 # scope
 def myfunc():
-    # declare mylist as global variable
-    global mylist
-    # no longer local variable
+    # local variable
     mylist = ["x"]
-    # mylist is now no longer shadowed
+    # mylist is now shadowed
     print(mylist, "value of global variable in the inner scope")
 
 

@@ -1,6 +1,6 @@
 def exhaust_my_iterators(days, lunch):
-    menu = list(zip(days, lunch))
-    print(menu)
+    menu = zip(days, lunch)
+    print(list(menu))
     full_menu = []
     for item in menu:
         print("On {} we offer {} for lunch.".format(item[0], item[1]))

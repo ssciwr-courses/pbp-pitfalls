@@ -13,8 +13,8 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-    - name: test code formatting
-      id: test-code-formatting
+    - name: test pitfalls
+      id: test-pitfalls
       uses: classroom-resources/autograding-python-grader@v1
       with:
         timeout: 10
@@ -23,6 +23,6 @@ jobs:
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
-        TEST-CODE-FORMATTING_RESULTS: "${{steps.test-code-formatting.outputs.result}}"
+        TEST-PITFALLS_RESULTS: "${{steps.test-pitfalls.outputs.result}}"
       with:
-        runners: test-code-formatting
+        runners: test-pitfalls

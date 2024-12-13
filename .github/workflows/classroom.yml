@@ -15,12 +15,11 @@ jobs:
       uses: actions/checkout@v4
     - name: test code formatting
       id: test-code-formatting
-      uses: classroom-resources/autograding-command-grader@v1
+      uses: classroom-resources/autograding-python-grader@v1
       with:
-        test-name: test pitfalls
-        setup-command: 'pip install -r requirements.txt'
-        command: python -m pytest -s
         timeout: 10
+        setup-command: 'pip install -r requirements.txt'
+        max-score: 3
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:

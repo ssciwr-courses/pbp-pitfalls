@@ -13,17 +13,16 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-    - name: test code formatting
-      id: test-code-formatting
-      uses: classroom-resources/autograding-command-grader@v1
+    - name: test pitfalls
+      id: test-pitfalls
+      uses: classroom-resources/autograding-python-grader@v1
       with:
-        test-name: test pitfalls
-        setup-command: 'pip install -r requirements.txt'
-        command: python -m pytest -s
         timeout: 10
+        setup-command: 'pip install -r requirements.txt'
+        max-score: 6
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
-        TEST-CODE-FORMATTING_RESULTS: "${{steps.test-code-formatting.outputs.result}}"
+        TEST-PITFALLS_RESULTS: "${{steps.test-pitfalls.outputs.result}}"
       with:
-        runners: test-code-formatting
+        runners: test-pitfalls

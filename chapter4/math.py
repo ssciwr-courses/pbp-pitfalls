@@ -1,5 +1,6 @@
 from math import radians, sin
 
+
 def print_stuff():
     print("This is some stuff")
     rads = radians(90)

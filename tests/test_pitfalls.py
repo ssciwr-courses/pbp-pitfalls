@@ -34,3 +34,16 @@ def test_import(python_modules):
     if failure != 0:
         print("Error: Could not run Python on {}".format(python_modules[matches[0]]))
     assert failure == 0
+
+def test_notebook(input_file_path):
+    # try to run the notebook
+    notebook_path = input_file_path / "pitfalls.ipynb"
+    command = "jupyter nbconvert --to notebook --execute {} --output {}".format(notebook_path, notebook_path)
+    failure = 0 
+    try:
+        subprocess.check_output(command, shell=True)
+    except subprocess.CalledProcessError as e:
+        failure = e.returncode
+    if failure != 0:
+        print("Error: Could not run Jupyter on {}".format(notebook_path))
+    assert failure == 0
